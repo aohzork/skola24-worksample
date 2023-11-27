@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Folder Include="Data\EFModels\" />
+    <Folder Include="Data\Enums\" />
     <Folder Include="Data\OutputModels\" />
     <Folder Include="Services\" />
   </ItemGroup>
