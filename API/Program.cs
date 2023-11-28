@@ -1,4 +1,31 @@
+using API.Data;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
+using System;
+
 var builder = WebApplication.CreateBuilder(args);
+
+//Add different connectionstrings if development or production
+var environment = builder.Configuration.GetSection("Environment").Value ?? "Development";
+
+var appSettingsFileName = $"appsettings.{environment}.json";
+var configuration = new ConfigurationBuilder()
+    .SetBasePath(builder.Environment.ContentRootPath)
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddJsonFile(appSettingsFileName, optional: true, reloadOnChange: true)
+    .Build();
+
+var connectionStrings = new ConnectionStrings();
+configuration.GetSection("ConnectionStrings").Bind(connectionStrings);
+
+builder.Services.AddDbContext<Skola24Context>(options =>
+{
+    options.UseSqlServer(environment.Equals("Development", StringComparison.OrdinalIgnoreCase) 
+                                                            ? connectionStrings.Development 
+                                                            : connectionStrings.Production);
+});
+
 
 // Add services to the container.
 
