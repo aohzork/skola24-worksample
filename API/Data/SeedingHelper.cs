@@ -87,6 +87,9 @@ namespace API.Data
                         absenceId += 1;
                         var absenceLength = random.Next(1, 40);
 
+                        var fromDateDateAmount = random.Next(7, 15);
+                        bool addToDate = random.Next(2) == 1 ? true : false;
+
                         modelBuilder.Entity<Absence>().HasData(
                             new Absence
                             {
@@ -94,6 +97,8 @@ namespace API.Data
                                 AbsenceLength = absenceLength,
                                 Type = GenerateAbsenceType(random),
                                 StudentId = (i+1),
+                                FromDate = DateTime.UtcNow.AddDays(-fromDateDateAmount),
+                                ToDate = addToDate ? DateTime.UtcNow.AddDays(random.Next(0,6)) : null
                             }
                         );
                     }
@@ -103,11 +108,17 @@ namespace API.Data
 
         static AbsenceType GenerateAbsenceType(Random rand)
         {
-            AbsenceType[] absenceType = { AbsenceType.None, AbsenceType.Sickness, AbsenceType.Dentist, AbsenceType.StudentCouncil, AbsenceType.Vacation };
+            AbsenceType[] absenceType =
+            { 
+                AbsenceType.None,
+                AbsenceType.Sickness,
+                AbsenceType.Dentist,
+                AbsenceType.StudentCouncil,
+                AbsenceType.Vacation
+            };
             var type = absenceType[rand.Next(0, absenceType.Length)];
 
             return type;
-        }
-             
+        }          
     }
 }
