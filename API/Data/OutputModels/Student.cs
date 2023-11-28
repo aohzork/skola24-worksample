@@ -1,6 +1,4 @@
-﻿using API.Data.EFModels;
-
-namespace API.Data.OutputModels
+﻿namespace API.Data.OutputModels
 {
     public class Student
     {
