@@ -13,7 +13,24 @@ namespace API.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<School>()
+                .HasKey(sc => sc.Id);
+
+            modelBuilder.Entity<School>()
+                .HasMany(st => st.Students)
+                .WithOne(sc => sc.School)
+                .HasForeignKey(st => st.SchoolId);
+
+            modelBuilder.Entity<Student>()
+                .HasKey(st => st.Id);
+
+            modelBuilder.Entity<Student>()
+                .HasMany(ab => ab.Absences)
+                .WithOne(st => st.Student)
+                .HasForeignKey(ab => ab.StudentId);
+
+            modelBuilder.Entity<Absence>()
+                .HasIndex(ab => ab.Id);     
         }
     }
 }
