@@ -98,7 +98,7 @@ namespace API.Data
                                 Type = GenerateAbsenceType(random),
                                 StudentId = (i+1),
                                 FromDate = DateTime.UtcNow.AddDays(-fromDateDateAmount),
-                                ToDate = addToDate ? DateTime.UtcNow.AddDays(random.Next(0,6)) : null
+                                ToDate = addToDate ? DateTime.UtcNow.AddDays(-random.Next(0,6)) : null
                             }
                         );
                     }
