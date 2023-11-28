@@ -38,7 +38,7 @@ namespace API.Data
             for(int i = 0; i < _schoolNames.Length; i++)
             {
                 modelBuilder.Entity<School>().HasData(
-                    new School { Id = i+1, SchoolName = _schoolNames[i] }
+                    new School { Id = (i+1), SchoolName = _schoolNames[i] }
                 );
             }
         }
@@ -51,7 +51,7 @@ namespace API.Data
             {
                 modelBuilder.Entity<Student>().HasData(
                     new Student {
-                        Id = i+1,
+                        Id = (i+1),
                         SchoolId = random.Next(1,_schoolNames.Length),
                         StudentName = GenerateRandomStudentName()
                     }
@@ -76,7 +76,7 @@ namespace API.Data
 
             for (int i = 0; i < _totalNameCombinations; i++)
             {
-                var hasAbsence = random.Next(0, 1);
+                var hasAbsence = random.Next(2);
 
                 if (hasAbsence == 1)
                 {
@@ -93,7 +93,7 @@ namespace API.Data
                                 Id = absenceId,
                                 AbsenceLength = absenceLength,
                                 Type = GenerateAbsenceType(random),
-                                StudentId = i + 1,
+                                StudentId = (i+1),
                             }
                         );
                     }
