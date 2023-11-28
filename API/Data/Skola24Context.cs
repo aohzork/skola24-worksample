@@ -30,7 +30,12 @@ namespace API.Data
                 .HasForeignKey(ab => ab.StudentId);
 
             modelBuilder.Entity<Absence>()
-                .HasIndex(ab => ab.Id);     
+                .HasIndex(ab => ab.Id);
+            
+
+
+            //initial seeding
+
         }
     }
 }

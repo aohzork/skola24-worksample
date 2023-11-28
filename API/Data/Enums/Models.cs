@@ -4,13 +4,15 @@ namespace API.Data.Enums
 {
     public enum AbsenceType
     {
+        [Description("Ej angivit")]
+        None = 1,
         [Description("Sjukdom")]
-        Sickness = 1,
+        Sickness = 2,
         [Description("Tandläkare")]
-        Dentist = 2,
+        Dentist = 3,
         [Description("Elevråd")]
-        StudentCouncil = 3,
-        [Description("VAB")]
-        Childcare = 4,
+        StudentCouncil = 4,
+        [Description("Semester")]
+        Vacation = 5,
     }
 }
