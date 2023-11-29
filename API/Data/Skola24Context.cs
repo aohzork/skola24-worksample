@@ -13,6 +13,7 @@ namespace API.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //relations
             modelBuilder.Entity<School>()
                 .HasKey(sc => sc.Id);
 
@@ -20,6 +21,11 @@ namespace API.Data
                 .HasMany(st => st.Students)
                 .WithOne(sc => sc.School)
                 .HasForeignKey(st => st.SchoolId);
+
+            modelBuilder.Entity<School>()
+                .HasIndex(sc => sc.SchoolName)
+                .IsUnique()
+                .HasDatabaseName("IX_SchoolName");
 
             modelBuilder.Entity<Student>()
                 .HasKey(st => st.Id);
@@ -30,9 +36,7 @@ namespace API.Data
                 .HasForeignKey(ab => ab.StudentId);
 
             modelBuilder.Entity<Absence>()
-                .HasIndex(ab => ab.Id);
-
-
+                .HasKey(ab => ab.Id);
 
             //initial seeding
             SeedingHelper.GenerateSchools(modelBuilder);
