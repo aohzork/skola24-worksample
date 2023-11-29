@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 namespace API.Controllers
 {
     [ApiController]
-    [Route("[api/v1.0/controller]")]
+    [Route("api/v1.0/[controller]")]
     public class AbsenceController : ControllerBase
     {
         private IAbsenceService _absenceService;
