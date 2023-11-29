@@ -49,7 +49,7 @@ namespace API.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("Absences");
+                    b.ToTable("Absences", (string)null);
                 });
 
             modelBuilder.Entity("API.Data.EFModels.School", b =>
@@ -70,7 +70,7 @@ namespace API.Migrations
                         .IsUnique()
                         .HasDatabaseName("IX_SchoolName");
 
-                    b.ToTable("Schools");
+                    b.ToTable("Schools", (string)null);
                 });
 
             modelBuilder.Entity("API.Data.EFModels.Student", b =>
@@ -92,7 +92,7 @@ namespace API.Migrations
 
                     b.HasIndex("SchoolId");
 
-                    b.ToTable("Students");
+                    b.ToTable("Students", (string)null);
                 });
 
             modelBuilder.Entity("API.Data.EFModels.Absence", b =>
