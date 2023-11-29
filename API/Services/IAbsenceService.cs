@@ -2,6 +2,6 @@
 {
     public interface IAbsenceService
     {
-        Task<double> GetAbsenceBySchoolAsync(string school);
+        Task<double> GetAbsenceBySchoolAsync(string schoolName);
     }
 }
