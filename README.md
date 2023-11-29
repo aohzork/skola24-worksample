@@ -19,5 +19,5 @@ when creating the database for the first time.
 * **Dynamic connectionstrings**: When working in local environment, a connectionstring is used to access the local database created. <br>
 When in production a different connectionstring will be used automatically.
 
-#### Troubleshooting
-* Cannot find Stored Procedure in SQL Management Studio: If you can see the stored procedure inside *Database (LocalSkola24) -> Programmability -> Stored Procedures* (`db.GetAbsenceBySchool)`, then refresh Intellisence Cache with `CTRL+SHIFT+R`.
+##### Troubleshooting
+* **Cannot find Stored Procedure in SQL Management Studio**: If you can see the stored procedure inside *Database (LocalSkola24) -> Programmability -> Stored Procedures* (`db.GetAbsenceBySchool)`, then refresh Intellisence Cache with `CTRL+SHIFT+R`.
