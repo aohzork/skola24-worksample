@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 namespace API.Controllers
 {
     [ApiController]
-    [Route("[api/v1.0/controller]")]
+    [Route("api/v1.0/[controller]")]
     public class AbsenceController : ControllerBase
     {
         private IAbsenceService _absenceService;
@@ -18,14 +18,14 @@ namespace API.Controllers
         /// <summary>
         /// Get total absence from a School by name
         /// </summary>
-        /// <param name="school"></param>
+        /// <param name="schoolName"></param>
         /// <returns></returns>
         [HttpGet("bySchool")]
-        public async Task<ActionResult<double>> GetAbsenceBySchool([FromQuery] string school)
+        public async Task<ActionResult<double>> GetAbsenceBySchool([FromQuery] string schoolName)
         {
             try 
             {
-                var result = await _absenceService.GetAbsenceBySchoolAsync(school);
+                var result = await _absenceService.GetAbsenceBySchoolAsync(schoolName);
                 return Ok(result);
             }
             catch (Exception ex)
