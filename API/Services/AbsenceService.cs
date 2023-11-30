@@ -1,6 +1,8 @@
 ﻿using API.Data;
 using API.Data.EFModels;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 using System.Linq;
 
 namespace API.Services
@@ -16,11 +18,19 @@ namespace API.Services
 
         public async Task<double> GetAbsenceBySchoolAsync(string schoolName)
         {
-            var totalAbsence = await _context.Schools
-                .Where(sc => sc.SchoolName == schoolName)
-                .Join(_context.Students, sc => sc.Id, st => st.SchoolId, (sc, st) => st)
-                .Join(_context.Absences, st => st.Id, ab => ab.StudentId, (st, ab) => ab)
-                .SumAsync(ab => ab.AbsenceLength);
+            var schoolNameParam = new SqlParameter("@SchoolName", schoolName);
+            var totalAbsenceParam = new SqlParameter
+            {
+                ParameterName = "@TotalAbsence",
+                SqlDbType = SqlDbType.Decimal,
+                Direction = ParameterDirection.Output,
+            };
+
+            await _context.Database
+            .ExecuteSqlRawAsync("EXEC GetAbsenceBySchool @SchoolName, @TotalAbsence OUTPUT",
+                schoolNameParam, totalAbsenceParam);
+
+            var totalAbsence = Decimal.ToDouble((decimal)totalAbsenceParam.Value);
 
             return totalAbsence;
         }

@@ -38,10 +38,11 @@ namespace API.Data
             modelBuilder.Entity<Absence>()
                 .HasKey(ab => ab.Id);
 
-            //initial seeding
-            SeedingHelper.GenerateSchools(modelBuilder);
-            SeedingHelper.GenerateStudents(modelBuilder);
-            SeedingHelper.GenerateAbsence(modelBuilder);
+            ////seeding
+            //SeedingHelper.GenerateSchools(modelBuilder);
+            //SeedingHelper.GenerateStudents(modelBuilder);
+            //SeedingHelper.GenerateAbsence(modelBuilder);
         }
+
     }
 }
