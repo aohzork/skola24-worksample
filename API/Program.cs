@@ -27,7 +27,6 @@ builder.Services.AddDbContext<Skola24Context>(options =>
                                                             : connectionStrings.Production);
 });
 
-
 // Add services to the container.
 builder.Services.AddScoped<IAbsenceService, AbsenceService>();
 

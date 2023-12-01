@@ -1,20 +1,33 @@
 <script setup>
 import APITestButton from './components/APITestButton.vue';
+import AbsenceDataButton from './components/AbsenceDataButton.vue';
+import PageNavButton from './components/PageNavButton.vue';
+import ViewPanel from './components/ViewPanel.vue';
 // import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
+    <h1>Hello</h1>
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
     </div>
   </header>
 
   <main>
-    <APITestButton />
-    <!-- <TheWelcome /> -->
+    <router-view></router-view>
+    <div v-if="$route.path !== '/register-absence'">
+      <APITestButton />
+      <ViewPanel>
+        <template v-slot:child>
+          <Child :prop1="Hello">Hello</Child>
+        </template>
+      </ViewPanel>
+      <AbsenceDataButton :studentName="'Student'" :fromDate="new Date()" reason="'Vill ej uppge'" />
+      <PageNavButton :bgColor="'#00FF00'" :iconClass="'bi bi-calendar3'" />
+      <!-- <TheWelcome /> -->
+    </div>
   </main>
 </template>
 
