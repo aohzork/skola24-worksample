@@ -1,9 +1,10 @@
 <template>
     <button @click="handleButtonClick">
         <div class="button-content">
-            <div class="button-icon-area" :style="{ backgroundColor: bgColor }"><i :class="iconClass"></i></div>
+            <div class="button-icon-area" :style="{ backgroundColor: bgColor }"><i :class="iconClass" :btnText="text"></i>
+            </div>
             <div class="text-area">
-                <h2>Hello</h2>
+                <h2>{{ btnText }}</h2>
             </div>
         </div>
     </button>
@@ -20,6 +21,7 @@ export default {
     props: {
         iconClass: String,
         bgColor: String,
+        btnText: String,
     }
 }
 </script>
@@ -34,8 +36,8 @@ button {
     cursor: pointer;
 }
 
-button:active {
-    background-color: orange;
+button:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 6px 12px;
 }
 
 .button-content {
