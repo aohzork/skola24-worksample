@@ -1,5 +1,5 @@
 <template>
-    <button @click="handleButtonClick">
+    <button @click="handleButtonClick" :uri="redirectToURI">
         <div class="button-content">
             <div class="button-icon-area" :style="{ backgroundColor: bgColor }"><i :class="iconClass" :btnText="text"></i>
             </div>
@@ -15,13 +15,14 @@ export default {
     name: "PageNavButton",
     methods: {
         handleButtonClick() {
-            this.$router.push("/register-absence");
+            this.$router.push(this.uri);
         }
     },
     props: {
         iconClass: String,
         bgColor: String,
         btnText: String,
+        uri: String,
     }
 }
 </script>
