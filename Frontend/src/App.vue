@@ -1,19 +1,22 @@
 <script setup>
-import APITestButton from './components/APITestButton.vue';
 import PageNavButton from './components/PageNavButton.vue';
-// import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
   <main>
     <router-view></router-view>
-    <div v-if="$route.path !== '/register-absence'">
-      <div>
-
+    <div v-if="$route.path === '/'">
+      <div class="col-12">
+        <h1>Skola24 arbetsprov</h1>
       </div>
-      <APITestButton />
-      <PageNavButton :bgColor="'#4ade80'" :iconClass="'bi bi-calendar3'" :btnText="'Registrera frånvaro'" />
-      <!-- <TheWelcome /> -->
+      <div class="col-3">
+        <PageNavButton :bgColor="'#4ade80'" :iconClass="'bi bi-calendar3'" :btnText="'Registrera frånvaro'"
+          :uri="'/register-absence'" />
+      </div>
+      <div class="col-3">
+        <PageNavButton :bgColor="'#fde047'" :iconClass="'bi bi-clock'" :btnText="'Frånvarokollen'"
+          :uri="'/absence-report'" />
+      </div>
     </div>
   </main>
 </template>

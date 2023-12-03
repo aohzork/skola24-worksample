@@ -4,7 +4,6 @@ import StudentAbsenceItem from '../components/StudentAbsenceItem.vue';
 import { getRandomStudent } from '../dataHandler';
 </script>
 
-
 <template>
     <div>
         <h1>Registrera frånvaro</h1>
