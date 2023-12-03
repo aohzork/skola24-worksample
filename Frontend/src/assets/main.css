@@ -1,6 +1,7 @@
 @import './base.css';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 @import './custom-grid.css';
+@import './custom-theme-colors.css';
 
 #app {
   max-width: 1280px;
