@@ -1,4 +1,5 @@
-﻿using API.Services;
+﻿using API.Data.OutputModels;
+using API.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
@@ -26,6 +27,20 @@ namespace API.Controllers
             try 
             {
                 var result = await _absenceService.GetAbsenceBySchoolAsync(schoolName);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("ofStudentsBySchool")]
+        public async Task<ActionResult<List<StudentsAbsences>>> StudentsAbsenceBySchool([FromQuery] string schoolName)
+        {
+            try
+            {
+                var result = await _absenceService.GetStudentsAbsenceBySchool(schoolName);
                 return Ok(result);
             }
             catch (Exception ex)
