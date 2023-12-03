@@ -10,5 +10,9 @@ const apiClient = axios.create({
 export default {
   getAbsenceBySchool(schoolName) {
     return apiClient.get(`/bySchool?schoolName=${schoolName}`)
+  },
+
+  getStudentsAbsenceBySchool(schoolName) {
+    return apiClient.get(`/ofStudentsBySchool?schoolName=${schoolName}`)
   }
 }

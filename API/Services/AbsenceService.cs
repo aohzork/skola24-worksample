@@ -37,7 +37,7 @@ namespace API.Services
             return totalAbsence;
         }
 
-        public async Task<List<StudentsAbsences>> GetStudentsAbsencesBySchool(string schoolName)
+        public async Task<List<StudentsAbsences>> GetStudentsAbsenceBySchool(string schoolName)
         {
             var students = await _context.Set<EFModels.School>()
                         .Where(sc => sc.SchoolName == schoolName)

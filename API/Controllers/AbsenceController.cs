@@ -36,11 +36,11 @@ namespace API.Controllers
         }
 
         [HttpGet("ofStudentsBySchool")]
-        public async Task<ActionResult<List<StudentsAbsences>>> StudentsAbsencesBySchool([FromQuery] string schoolName)
+        public async Task<ActionResult<List<StudentsAbsences>>> StudentsAbsenceBySchool([FromQuery] string schoolName)
         {
             try
             {
-                var result = await _absenceService.GetStudentsAbsencesBySchool(schoolName);
+                var result = await _absenceService.GetStudentsAbsenceBySchool(schoolName);
                 return Ok(result);
             }
             catch (Exception ex)
