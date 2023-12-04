@@ -64,6 +64,7 @@ button:hover {
 @media (max-width: 998px) {
     .button-content {
         flex-direction: row;
+        width: 400px;
     }
 
     .text-area {
@@ -76,6 +77,8 @@ button:hover {
     .button-icon-area {
         width: 45px;
         height: 45px;
+        font-size: 1.5em;
+        padding-top: 12px;
     }
 
     button {
