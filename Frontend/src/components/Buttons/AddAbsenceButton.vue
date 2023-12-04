@@ -22,6 +22,7 @@ export default {
     }
 }
 </script>
+
 <style scoped>
 .wrapper {
     width: 100%;
@@ -70,7 +71,6 @@ button {
 
     .text {
         font-size: 2em;
-
     }
 }
 </style>

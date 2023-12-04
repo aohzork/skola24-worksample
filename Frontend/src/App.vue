@@ -17,6 +17,8 @@ import PageNavButton from './components/PageNavButton.vue';
         <PageNavButton :bgColor="'#FFC72C'" :iconClass="'bi bi-clock'" :btnText="'Frånvarokollen'"
           :uri="'/absence-report'" />
       </div>
+      <div class="col-3"> </div>
+      <div class="col-3"> </div>
     </div>
   </main>
 </template>
