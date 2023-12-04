@@ -2,7 +2,8 @@
 This is a worksample for Skola24.
 For convinence both backend and frontend have been placed on same repo.
 
-The backend consists of a CORE REST API (OpenApi 7.0.11) coupled with Entity Frameworks (7.0.14) code first sql database.<br>
+The backend consists of a CORE REST API (OpenApi 7.0.11) coupled with Entity Frameworks (7.0.14) code first sql database.
+
 Frontend is built upon Vue.js (v3.3.4)
 
 A simple github workflow is running a build and test flow each time a pr or push is made to the main- or development branch.
@@ -11,11 +12,12 @@ A simple github workflow is running a build and test flow each time a pr or push
 ## Installation
 Clone the repository.
 
+
 ## - Backend
 * **To create the database**: In Visual Studio in Package Manager Console. Default project set to: API.<br>
-Apply the migrations and create the database by running the command '`update-database`'.
-
+Apply the migrations and create the database by running the command '`update-database`'.<br>
 This will create a local database to access via SQL Server Management Studio.
+
 * **To Access the database:** Connect *Database Engine* with *Windows Authentication* and *Server name:* `(localdb)\MSSQLLocalDB`
 
 #### Database features
@@ -25,6 +27,7 @@ when creating the database for the first time.
 When in production a different connectionstring will be used automatically.
 * **Stored procedure**: When first time creating the database a stored procedure called `GetAbsenceBySchool` is created which is used<br>
 in AbsenceService as well as can be tested inside SQL Management Studio.
+* **Cors**: Cors is configured for localhost for Vue to be able to access the API.
 
 ##### Troubleshooting
 * **Cannot find Stored Procedure in SQL Management Studio**: If you can see the stored procedure inside *Database (LocalSkola24) -> Programmability -> Stored Procedures* (`db.GetAbsenceBySchool)`, then refresh Intellisence Cache with `CTRL+SHIFT+R`.
