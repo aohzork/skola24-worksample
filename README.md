@@ -37,8 +37,8 @@ It is easiest to load the frontend solution in Visual Studio Code.
 - File -> Open Folder -> Frontend (Mark folder and click open)
 
 After opened folder. Run following command in terminal:
-* npm install
-* npm run build
+* `npm install`
+* `npm run build`
 
 #### Vue.js features
 * **Axios**: Axios setup for enabling API endpoint access.
@@ -49,5 +49,7 @@ After opened folder. Run following command in terminal:
 ---
 ## Running solution
 Both Frontend and API can be run separately but in frontend one part ("Frånvarokollen") use the API exclusively. For full experience it's recommendend to run both solutions simultaneously.
-* API - Start via Visual studio **https (https://localhost:7285)**
-* Vjue - npm run dev (start client server) Open a new browser and type in url **http://localhost:5173/**
+* API - Start via Visual studio **https**. A new browser window with Swagger should open with the url https://localhost:7285
+* Vjue - In terminal run **`npm run dev`** (start client server) Open a new browser and type in url **http://localhost:5173/**
+
+Now you should be up and running the full solution
