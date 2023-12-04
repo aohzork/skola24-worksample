@@ -1,9 +1,11 @@
 ﻿using API.Data;
-using API.Data.EFModels;
+using EFModels = API.Data.EFModels;
+using API.Data.OutputModels;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 using System.Linq;
+using API.Data.EFModels;
 
 namespace API.Services
 {
@@ -33,6 +35,22 @@ namespace API.Services
             var totalAbsence = Decimal.ToDouble((decimal)totalAbsenceParam.Value);
 
             return totalAbsence;
+        }
+
+        public async Task<List<StudentsAbsences>> GetStudentsAbsenceBySchool(string schoolName)
+        {
+            var students = await _context.Set<EFModels.School>()
+                        .Where(sc => sc.SchoolName == schoolName)
+                        .Include(s => s.Students)
+                        .ThenInclude(a => a.Absences).SelectMany(s => s.Students)
+                        .Select(student => new StudentsAbsences
+                        {
+                            Id = student.Id,
+                            Name = student.StudentName,
+                            TotalAbsence = student.Absences.Sum(a => a.AbsenceLength)
+                        }).ToListAsync();
+
+            return students;
         }
     }
 }

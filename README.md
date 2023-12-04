@@ -1,17 +1,19 @@
 # Skola24-worksample
 This is a worksample for Skola24.
+For convinence both backend and frontend have been placed on same repo.
 
-For convinience this repo contains an API and a Frontend instead of two separate repos.
-**API**: Is a CORE REST API coupled with Entity Frameworks code first sql database.
-**Frontend**: Vue.js with routercapabilities and access to API.
+The backend consists of a CORE REST API (OpenApi 7.0.11) coupled with Entity Frameworks (7.0.14) code first sql database.
+
+Frontend is built upon Vue.js (v3.3.4)
+
+A simple github workflow is running a build and test flow each time a pr or push is made to the main- or development branch.
+
+---
+## Installation
+Clone the repository.
 
 
-# Installation
-Clone the repository and follow instructions below.
-
-## API
-
-### - Database
+## - Backend
 * **To create the database**: In Visual Studio in Package Manager Console. Default project set to: API.<br>
 Apply the migrations and create the database by running the command '`update-database`'.<br>
 This will create a local database to access via SQL Server Management Studio.
@@ -30,5 +32,24 @@ in AbsenceService as well as can be tested inside SQL Management Studio.
 ##### Troubleshooting
 * **Cannot find Stored Procedure in SQL Management Studio**: If you can see the stored procedure inside *Database (LocalSkola24) -> Programmability -> Stored Procedures* (`db.GetAbsenceBySchool)`, then refresh Intellisence Cache with `CTRL+SHIFT+R`.
 
+## - Frontend
+It is easiest to load the frontend solution in Visual Studio Code. 
+- File -> Open Folder -> Frontend (Mark folder and click open)
 
-## Vue.js
+After opened folder. Run following command in terminal:
+* `npm install`
+* `npm run build`
+
+#### Vue.js features
+* **Axios**: Axios setup for enabling API endpoint access.
+* **Router**: Vue-router for multipage navigation
+* **Bootstrap-icons**: Access icons via bootstrap
+* **CSS-grid**: A simple css-grid made for easy and fast layouting
+
+---
+## Running solution
+Both Frontend and API can be run separately but in frontend one part ("Frånvarokollen") use the API exclusively. For full experience it's recommendend to run both solutions simultaneously.
+* API - Start via Visual studio **https**. A new browser window with Swagger should open with the url https://localhost:7285
+* Vjue - In terminal run **`npm run dev`** (start client server) Open a new browser and type in url **http://localhost:5173/**
+
+Now you should be up and running the full solution
