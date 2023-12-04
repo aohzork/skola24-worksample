@@ -12,7 +12,7 @@ export default {
 
 <style scoped>
 .view-panel {
-    padding: 20px;
+    padding: 15px;
     background-color: #ffff;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
