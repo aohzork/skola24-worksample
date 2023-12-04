@@ -49,7 +49,46 @@ After opened folder. Run following command in terminal:
 ---
 ## Running solution
 Both Frontend and API can be run separately but in frontend one part ("Frånvarokollen") use the API exclusively. For full experience it's recommendend to run both solutions simultaneously.
-* API - Start via Visual studio **https**. A new browser window with Swagger should open with the url https://localhost:7285
+* API - Start via Visual studio **https**. A new browser window with **Swagger** should open with the url https://localhost:7285
 * Vjue - In terminal run **`npm run dev`** (start client server) Open a new browser and type in url **http://localhost:5173/**
 
 Now you should be up and running the full solution
+
+---
+## Testing
+Since the much of the seed-data is randomly generated each time you create the database from a newly cloned repo, different data will be added each time. So there is no telling when testing out the endpoints e.g how many students a particular school contains. But each School should contain at least 1 student.
+The only constant data is School names (names generated).
+
+So to test the endponts in Swagger and Frontend ("Frånvarokollen")
+Here's a list of all schools created each time so you don't have to go into SQL Mangagement Studio to have a lookup:
+
+Ängelholmsgymnasiet<br>
+Bromma gymnasium<br>
+Centralgymnasiet<br>
+Eriksdalsskolan<br>
+Falkenbergsskolan<br>
+Göteborgs högre samskola<br>
+Hässelbygårdsskolan<br>
+Hästhagenskolan<br>
+Högdalsskolan<br>
+Hudiksvalls högstadieskola<br>
+Kristianstadsgymnasiet<br>
+Kungsängsgymnasiet<br>
+Lindeskolan<br>
+Mälarhöjdens skola<br>
+Malmö Borgarskola<br>
+Mölndals högstadieskola<br>
+Nordvästra skolan<br>
+Nynäshamnsskolan<br>
+Örebrogymnasiet<br>
+Österänggymnasiet<br>
+Östra grundskolan<br>
+Sjöbergsskolan<br>
+Skarpängsskolan<br>
+Söderskolan<br>
+Södertälje gymnasium<br>
+Sturegymnasiet<br>
+Sunnegårdsskolan<br>
+Sveagymnasiet<br>
+Västergårdsskolan<br>
+Västermalms högstadieskola<br>
