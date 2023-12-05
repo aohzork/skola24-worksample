@@ -35,6 +35,11 @@ namespace API.Controllers
             }
         }
 
+        /// <summary>
+        /// Get each student total absence from a School by name
+        /// </summary>
+        /// <param name="schoolName"></param>
+        /// <returns></returns>
         [HttpGet("ofStudentsBySchool")]
         public async Task<ActionResult<List<StudentsAbsences>>> StudentsAbsenceBySchool([FromQuery] string schoolName)
         {
